@@ -15,6 +15,16 @@
   "dependencies": [
 
   ],
+
+  "packs": [
+    {
+      "name": "alien-actions",
+      "label": "Alien Actions",
+      "path": "./packs/alien-actions.db",
+      "entity": "Macro"
+}
+  ],
+
   "conflicts": [
     
   ],
