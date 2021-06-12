@@ -1,10 +1,10 @@
 {
   "name": "alien-actions",
-  "title": "Alien Actions",
+  "title": "Year Zero Actions",
   "description": "Module to track fast/slow actions on Year Zero system games.",
   "version": "This is auto replaced",
   "library": "false",
-  "manifestPlusVersion": "1.0.0",
+  "manifestPlusVersion": "1.2.0",
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "0.8.6",
   "authors": [
