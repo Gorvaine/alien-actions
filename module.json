@@ -18,9 +18,9 @@
 
   "packs": [
     {
-      "name": "alien-actions",
-      "label": "Alien Actions",
-      "path": "./packs/alien-actions.db",
+      "name": "yearzero-actions",
+      "label": "Year Zero Actions",
+      "path": "./packs/yearzerl-actions.db",
       "entity": "Macro"
 }
   ],
