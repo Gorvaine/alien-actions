@@ -23,7 +23,7 @@ Hooks.on('updateCombat', async function (e) {
   if (e.current.turn == 0) { // if we are in first round
     e.combatants.forEach(combatant => {
       //if (combatant.actor.type != "creature") removeActions(combatant.token);
-      removeActions(combatant.token);
+      canvas.tokens.children[0].children.filter(token => token.data.name == combatant.name).forEach(token => removeActions(token) );
     });
   }
 
