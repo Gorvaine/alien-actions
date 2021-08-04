@@ -9,11 +9,8 @@
   "compatibleCoreVersion": "0.8.8",
   "authors": [
     {
-      "name": "gorion"
+      "name": "Gorion"
     }
-  ],
-  "dependencies": [
-
   ],
 
   "packs": [
