@@ -20,18 +20,27 @@ Hooks.on('updateCombat', async function (e) {
   let combat_token = canvas.tokens.get(e.current.tokenId);
   let combat_actor = combat_token.actor;
 
-  if (e.current.turn == 0) { // if we are in first round
-    e.combatants.forEach(combatant => {
-      //if (combatant.actor.type != "creature") removeActions(combatant.token);
-      canvas.tokens.children[0].children.filter(token => token.data.name == combatant.name).forEach(token => removeActions(token) );
-    });
+  if (e.current.turn == 0) { // if we are in first turn
+    //e.combatants.forEach(combatant => {      
+    //  canvas.tokens.children[0].children.filter(token => token.data.name == combatant.name).forEach(token => removeActions(token) );
+    
+    // WE ACTIVATE ALL CANVAS TOKENS!
+    canvas.tokens.children[0].children.forEach(token => removeActions(token));
+    
   }
 
+  // IF it's a creature with speed > 1 we activate token again.
   if (combat_actor.type == "creature") { // if its a creature
     if (combat_actor.data.data.attributes.speed.value > 1) {
       removeActions(combat_token);
     }
   }
+});
+
+
+// Clear actions when combat ends.
+Hooks.on('deleteCombat', async function (e) {
+  canvas.tokens.children[0].children.forEach(token => removeActions(token));
 });
 
 async function removeActions(combat_token) {
