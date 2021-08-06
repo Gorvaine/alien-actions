@@ -1,8 +1,4 @@
-Hooks.once('init', async function () {
-
-});
-
-Hooks.once('ready', async function () {
+Hooks.once('ready', function () {
   CONFIG.statusEffects.push({
     "id": "fastAction",
     "label": "EFFECT.StatusFastAction",
@@ -16,23 +12,25 @@ Hooks.once('ready', async function () {
   });
 });
 
-Hooks.on('updateCombat', async function (e) {
-  let combat_token = canvas.tokens.get(e.current.tokenId);
-  let combat_actor = combat_token.actor;
+Hooks.on('updateCombat',  function (e) {
+  if (game.user.isGM) {
+    let combat_token = canvas.tokens.get(e.current.tokenId);
+    let combat_actor = combat_token.actor;
 
-  if (e.current.turn == 0) { // if we are in first turn
-    //e.combatants.forEach(combatant => {      
-    //  canvas.tokens.children[0].children.filter(token => token.data.name == combatant.name).forEach(token => removeActions(token) );
-    
-    // WE ACTIVATE ALL CANVAS TOKENS!
-    canvas.tokens.children[0].children.forEach(token => removeActions(token));
-    
-  }
+    if (e.current.turn == 0) { // if we are in first turn
+      //e.combatants.forEach(combatant => {      
+      //  canvas.tokens.children[0].children.filter(token => token.data.name == combatant.name).forEach(token => removeActions(token) );
+      
+      // WE ACTIVATE ALL CANVAS TOKENS!
+      canvas.tokens.children[0].children.forEach(token => removeActions(token));
+      
+    }
 
-  // IF it's a creature with speed > 1 we activate token again.
-  if (combat_actor.type == "creature") { // if its a creature
-    if (combat_actor.data.data.attributes.speed.value > 1) {
-      removeActions(combat_token);
+    // IF it's a creature with speed > 1 we activate token again.
+    if (combat_actor.type == "creature") { // if its a creature
+      if (combat_actor.data.data.attributes.speed.value > 1) {
+        removeActions(combat_token);
+        }
     }
   }
 });
