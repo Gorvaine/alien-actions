@@ -25,15 +25,20 @@ Hooks.on('updateCombat',  function (e) {
       canvas.tokens.children[0].children.forEach(token => removeActions(token));
       
     }
-
-    // IF it's a creature with speed > 1 we activate token again.
-    if (combat_actor.type == "creature") { // if its a creature
+    else {
+          // IF it's a creature with speed > 1 and we are not in first round we activate token again.
+          if (combat_actor.type == "creature") { // if its a creature
       if (combat_actor.data.data.attributes.speed.value > 1) {
         removeActions(combat_token);
         }
     }
+    }
+
+
+
   }
 });
+
 
 
 // Clear actions when combat ends.
