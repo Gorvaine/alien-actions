@@ -2,13 +2,13 @@ Hooks.once('ready', function () {
   CONFIG.statusEffects.push({
     "id": "fastAction",
     "label": "EFFECT.StatusFastAction",
-    "icon": "modules/alien-actions/assets/fast-action.svg"
+    "icon": "modules/alien-actions/assets/fastaction.svg"
   });
 
   CONFIG.statusEffects.push({
     "id": "slowAction",
     "label": "EFFECT.StatusSlowAction",
-    "icon": "modules/alien-actions/assets/slow-action.svg"
+    "icon": "modules/alien-actions/assets/slowaction.svg"
   });
 });
 
