@@ -13,7 +13,7 @@
     {
       "name": "yearzero-actions",
       "label": "Year Zero Actions",
-      "path": "./packs/yearzerl-actions.db",
+      "path": "./packs/yearzero-actions.db",
       "entity": "Macro"
 }
   ],
