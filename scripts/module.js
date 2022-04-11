@@ -68,8 +68,8 @@ Hooks.on('deleteCombat', async function (e) {
 
 async function removeActions(combat_token) {
 
-  let slowAction = combat_token.actor.effects.find(eff => eff.getFlag("core", "statusId") === "slowAction");
-  let fastAction = combat_token.actor.effects.find(eff => eff.getFlag("core", "statusId") === "fastAction");
+  let slowAction = combat_token.actor.effects.find(eff => eff.getFlag("core", "statusId").includes("slowAction"));
+  let fastAction = combat_token.actor.effects.find(eff => eff.getFlag("core", "statusId").includes("fastAction"));
 
   if (slowAction != undefined) await slowAction.delete();
   if (fastAction != undefined) await fastAction.delete();
